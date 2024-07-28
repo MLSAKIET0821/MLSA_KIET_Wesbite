@@ -1,0 +1,130 @@
+.Card-content {
+  position: relative;
+  width: 100%;
+  background-color: rgb(210, 215, 241);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px; /* Add a max-width for larger screens */
+  margin: 0 auto; /* Center the cards horizontally */
+}
+
+.Card-title {
+  width: 100%;
+  background-color: rgba(206, 201, 245, 0.8);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Card-image {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.Card-image img {
+  width: 100%;
+  height: 200px; /* Set a constant height */
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.Card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(198, 192, 245, 0.8);
+  box-sizing: border-box;
+}
+
+.Card-footer h5 {
+  margin: 0;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between date and button */
+}
+
+.Card-footer button {
+  margin-left: 20px;
+}
+
+.Card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(50, 50, 58, 0.8), rgba(216, 216, 219, 0.2));
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.Card-content:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.Card-content:hover .Card-info {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Card-info h5,
+.Card-info h3,
+.Card-title h5,
+.Card-title h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.Card-info button {
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0.2));
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 767px) {
+  .Card-content {
+    height: auto; 
+    max-width: 90vw; 
+    margin: 20px auto;
+  }
+
+  .Card-image img {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .Card-content {
+    height: auto; 
+    max-width: 80vw; 
+    margin: 20px auto; 
+  }
+
+  .Card-image img {
+    height: 180px; 
+  }
+}

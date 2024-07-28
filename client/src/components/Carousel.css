@@ -1,0 +1,34 @@
+/* Mobile styles */
+@media (max-width: 767px) {
+    .card {
+      height: 500px; /* Adjust height for mobile */
+    }
+    .connect-button {
+      position: static; /* Position the button statically on mobile */
+      margin-top: 1rem; /* Add some spacing */
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .card {
+      height: 450px; /* Adjust height for tablets */
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .card {
+      height: 500px; /* Adjust height for desktops */
+    }
+}
+
+/* Tablet and desktop styles */
+@media (min-width: 768px) {
+    .connect-button {
+      position: absolute; /* Position the button absolutely on larger screens */
+      bottom: 1rem; /* Adjust the bottom position */
+      left: 50%; /* Center the button horizontally */
+      transform: translateX(-50%); /* Adjust the horizontal centering */
+    }
+}

@@ -1,0 +1,142 @@
+.icons {
+  width: 50px;
+  border: 1px solid;
+  height: 450px;
+  top: 18%;
+  background-color: #D3D3D3;
+  border-radius: 0px 20px 20px 0px;
+  transition: 0.5s;
+  z-index: 50;
+  position: fixed;
+}
+
+.menu {
+  display: none;
+  z-index: 50;
+}
+
+@media (max-width: 640px) {
+  .icons {
+    transition: 0.5s;
+    transform: rotate(90deg);
+    left: 46%;
+    top: 90%;
+  }
+
+  .icons.toggle {
+    transition: 0.5s;
+    width: 15%;
+    top: 70%;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .icons.toggle .Home, .icons.toggle .Members, .icons.toggle .Event, .icons.toggle .Landing, .icons.toggle .SignUp, .icons.toggle .Logout {
+    display: block;
+    margin-top: 10px;
+    margin-left: -20px;
+    transform: rotate(-90deg);
+    left: -4px;
+  }
+
+  .Home, .Members, .Event, .Landing, .SignUp, .Logout {
+    display: none;
+  }
+
+  .menu {
+    z-index: 50;
+    position: absolute;
+    left: -8px;
+    top: 8%;
+    width: 60px;
+    height: 60px;
+    position: static;
+    transition: 0.5s;
+    transform: rotate(180deg);
+  }
+
+  .menu .first, .menu .second {
+    position: absolute;
+    margin-top: -50px;
+    font-size: 35px;
+    transition: 0.5s;
+    left: 7px;
+    color: blue;
+    z-index: 50;
+  }
+
+  .menu .first {
+    top: 0px;
+  }
+
+  .menu .first.toggle {
+    transform: rotate(-48deg);
+    transition: 0.5s;
+  }
+
+  .menu .second {
+    top: 18px;
+  }
+
+  .menu .second.toggle {
+    transform: rotate(48deg);
+    transition: 0.5s;
+  }
+
+  .icons.toggle {
+    width: 70px;
+  }
+}
+
+@media (min-width: 640px) {
+  .menu, .first, .second {
+    width: 0px;
+  }
+}
+
+.Home, .Members, .Event, .Landing, .SignUp, .Logout {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: black;
+  display: flex; /* Ensure they are visible */
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.Home:hover, .Members:hover, .Event:hover, .Landing:hover, .SignUp:hover, .Logout:hover {
+  color: rgb(135, 135, 135);
+}
+
+
+
+.Home:hover {
+  color: rgb(135, 135, 135);
+}
+
+
+
+.Event:hover {
+  color: rgb(135, 135, 135);
+}
+
+
+.Members:hover {
+  color: rgb(135, 135, 135);
+}
+.timeline {
+  position: absolute;
+  top: 400px;
+  cursor: pointer;
+  /* / */
+  z-index: 20;
+  
+}
+
+.timeline:hover {
+  color: rgb(135, 135, 135);
+}
+
