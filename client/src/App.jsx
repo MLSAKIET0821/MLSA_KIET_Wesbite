@@ -1,5 +1,6 @@
 import { useState, lazy, Suspense, useEffect, useContext } from 'react';
 import './App.css';
+import './loader.css'; //for improving Loading User interface
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import { MainContextProvider } from './Context/MainContext';
@@ -25,7 +26,11 @@ function App() {
       <AuthProvider>
         <Router >
           <div className='bg-black scroll-smooth'>
-            <Suspense fallback={<h1 className='text-white text-5xl justify-center text-center'>Loading...</h1>}>
+            <Suspense fallback={
+            <div className='flex  justify-center items-center h-screen flex-col '>    
+            <div class="loader text-white text-4xl mb-3"></div>
+        </div>
+            }>
               <Main_sidebar />
               <Routes>
                 <Route path="/" element={<><Landing /> <AboutUs /></>} />

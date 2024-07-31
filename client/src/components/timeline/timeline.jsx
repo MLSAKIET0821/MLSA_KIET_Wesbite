@@ -8,6 +8,8 @@ import { useEffect, useState,useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
+import { Motion } from "../framer-motion";// For Motion in Text
+
 AOS.init();
 
 function Line2(){
@@ -99,9 +101,19 @@ function Timeline() {
   return (
     <>
       <div className="bg-black mt-0 h-full w-full md:h-full md:w-full lg:h-full lg:w-full xl:h-full xl:w-full  2xl:h-full 2xl:w-full">
-        <h1 className=" text-center mt-0 py-16 text-6xl font-bold mb-8 m-auto bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
+        <Motion.h1 
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          stiffness: 110,
+          delay: 0,
+        }}
+        className=" text-center mt-0 py-16 text-6xl font-bold mb-8 m-auto bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
           How to be an MLSA
-        </h1>
+        </Motion.h1>
         {Array.isArray(timelineElements) &&
           timelineElements.map((elements, index) => {
             if (elements.id % 2 !== 0) {
@@ -112,16 +124,26 @@ function Timeline() {
                     className="flex xl:justify-start lg:justify-center sm: justify-center"
                   >
                     <div key={index} className="w-2/5 xl:mt-10 ml-24 lg:mt-10 ">
-                      <h2 key={index} className="text-white  text-3xl font-bold">
+                      <Motion.h2
+                      key={index}
+                       initial={{ opacity: 0, x: -50 }}
+                       whileInView={{ opacity: 1, x: 0 }}
+                       viewport={{ once: true }}
+                       transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.3 }} 
+                      className="text-white  text-3xl font-bold">
                         {elements.title}
-                      </h2>
+                      </Motion.h2>
                       <br></br>
-                      <p
-                        key={index}
+                      <Motion.p
+                      key={index}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4 }}
                         className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8"
                       >
                         {elements.description}
-                      </p>
+                      </Motion.p>
                     </div>
                   </div>
                 </>
@@ -133,13 +155,27 @@ function Timeline() {
                   className="flex xl:justify-end lg:justify-center sm:justify-center"
                 >
                   <div className="w-2/5 xl:mt-10 mr-24 lg:mt-10 ml-48">
-                    <h2 className="text-white text-3xl font-bold">
+                    <Motion.h2 
+                    key={index}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.3 }} 
+                  
+                    className="text-white text-3xl font-bold">
                       {elements.title}
-                    </h2>
+                    </Motion.h2>
                     <br />
-                    <p className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8">
+                    <Motion.p 
+                    key={index}
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4 }}
+                    
+                    className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8">
                       {renderDescriptionWithLinks(elements.description)}
-                    </p>
+                    </Motion.p>
                   </div>
                 </div>
               );
