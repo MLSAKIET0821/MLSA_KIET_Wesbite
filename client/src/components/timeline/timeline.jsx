@@ -119,6 +119,7 @@ function Timeline() {
             if (elements.id % 2 !== 0) {
               return (
                 <>
+            
                   <div
                     key={index}
                     className="flex xl:justify-start lg:justify-center sm: justify-center"
@@ -131,6 +132,7 @@ function Timeline() {
                        viewport={{ once: true }}
                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.3 }} 
                       className="text-white  text-3xl font-bold">
+                     
                         {elements.title}
                       </Motion.h2>
                       <br></br>
@@ -140,12 +142,14 @@ function Timeline() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4 }}
+                       
                         className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8"
                       >
                         {elements.description}
                       </Motion.p>
                     </div>
                   </div>
+                 
                 </>
               );
             } else {

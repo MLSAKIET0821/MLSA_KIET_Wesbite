@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AiFillLinkedin } from "react-icons/ai";
 import './Carousel.css';
+import { Motion } from "./framer-motion";// For Motion in Text
 
 function Carousel() {
   const settings = {
@@ -29,9 +30,19 @@ function Carousel() {
 
   return (
     <div>
-      <h1 className="text-center mt-0 py-16 text-6xl font-bold mb-8 m-auto bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
+      <Motion.h1 
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        type: "spring",
+        stiffness: 110,
+        delay: 0,
+      }}
+      className="text-center mt-0 py-16 text-6xl font-bold mb-8 m-auto bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
         Our College MLSAs
-      </h1>
+      </Motion.h1>
       <div className='w-3/4 m-auto'>
         <div className="mt-20">
           <Slider {...settings} style={{ marginLeft: '-20px', marginRight: '-20px' }}>
