@@ -38,7 +38,7 @@ function Carousel() {
         duration: 0.8,
         type: "spring",
         stiffness: 110,
-        delay: 0,
+        delay: 1,
       }}
       className="text-center mt-0 py-16 text-6xl font-bold mb-8 m-auto bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
         Our College MLSAs

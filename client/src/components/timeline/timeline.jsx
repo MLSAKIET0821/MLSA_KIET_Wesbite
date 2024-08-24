@@ -130,7 +130,7 @@ function Timeline() {
                        initial={{ opacity: 0, x: -50 }}
                        whileInView={{ opacity: 1, x: 0 }}
                        viewport={{ once: true }}
-                       transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.3 }} 
+                       transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 3) * 0.3 + 0.3 }} 
                       className="text-white  text-3xl font-bold">
                      
                         {elements.title}
@@ -141,7 +141,7 @@ function Timeline() {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4 }}
+                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 3) * 0.3 + 0.4 }}
                        
                         className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8"
                       >
@@ -164,7 +164,7 @@ function Timeline() {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.3 }} 
+                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 +0.3  }} 
                   
                     className="text-white text-3xl font-bold">
                       {elements.title}
@@ -175,7 +175,7 @@ function Timeline() {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4 }}
+                    transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 + 0.4}}
                     
                     className="text-white text-justify 2xl:mb-0 xl:mb-0 lg:mb-0 sm:mb-8">
                       {renderDescriptionWithLinks(elements.description)}
