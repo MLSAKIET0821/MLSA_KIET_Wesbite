@@ -1,10 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faPeopleGroup, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import ReactHtmlParser from "react-html-parser";
-import Main_sidebar from '../sidenav/main_sidebar';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendar,
+  faPeopleGroup,
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+// import ReactHtmlParser from "react-html-parser";
+// import ReactHtml from 'html-react-parser';
+import parse from "html-react-parser";
+import Main_sidebar from "../sidenav/main_sidebar";
+import { useParams } from "react-router-dom";
 
 const EventPastPage = () => {
   const { eventId } = useParams();
@@ -15,7 +22,9 @@ const EventPastPage = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await axios.get(`https://mlsa-backend-4w03.onrender.com/api/event/c/${eventId}`);
+        const response = await axios.get(
+          `https://mlsa-backend-4w03.onrender.com/api/event/c/${eventId}`
+        );
         const eventData = response.data.data[0];
         setEvent({
           name: eventData.eventName,
@@ -25,7 +34,7 @@ const EventPastPage = () => {
           images: eventData.images || [],
         });
       } catch (error) {
-        console.error('Error fetching event details:', error);
+        console.error("Error fetching event details:", error);
       }
     };
     fetchEventDetails();
@@ -36,17 +45,22 @@ const EventPastPage = () => {
   }
 
   const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? event.images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? event.images.length - 1 : prevIndex - 1
+    );
     sliderRef.current.scrollLeft -= sliderRef.current.offsetWidth;
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === event.images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === event.images.length - 1 ? 0 : prevIndex + 1
+    );
     sliderRef.current.scrollLeft += sliderRef.current.offsetWidth;
   };
 
   const getVisibleImages = () => {
-    const visibleCount = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+    const visibleCount =
+      window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
     const visibleImages = [];
 
     for (let i = currentIndex; i < currentIndex + visibleCount; i++) {
@@ -69,14 +83,17 @@ const EventPastPage = () => {
             src={event.image}
             alt={event.name}
             className="w-full max-w-md mb-6 md:mb-0 md:mr-10 rounded-lg"
-            style={{ height: 'auto' }}
+            style={{ height: "auto" }}
           />
           <div className="md:w-2/4 w-full">
             <div className="text-white text-lg sm:text-xl md:text-2xl ml-0 md:ml-5 mb-8">
-              {ReactHtmlParser(event.description)}
+              {parse(event.description)}
             </div>
             <div className="flex items-center justify-center md:justify-start">
-              <FontAwesomeIcon icon={faPeopleGroup} className="mr-2 text-blue-500 text-2xl sm:text-3xl md:text-4xl" />
+              <FontAwesomeIcon
+                icon={faPeopleGroup}
+                className="mr-2 text-blue-500 text-2xl sm:text-3xl md:text-4xl"
+              />
               <span className="text-blue-500 text-xl sm:text-2xl md:text-3xl font-bold">
                 {event.attendeeCount} Students Registered
               </span>
@@ -90,27 +107,28 @@ const EventPastPage = () => {
           <div className="flex items-center justify-center mb-4">
             <button
               className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
-              onClick={handlePrevClick}
-            >
+              onClick={handlePrevClick}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-              onClick={handleNextClick}
-            >
+              onClick={handleNextClick}>
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </div>
           <div className="overflow-hidden lg:ml-32 lg:mr-10 flex justify-center mb-16">
             <div ref={sliderRef} className="flex flex-no-wrap w-full">
               {getVisibleImages().map((imageUrl, index) => (
-                <div key={index} className="flex-shrink-0 mr-4 last:mr-0  max-w-xs w-96 h-96 sm:w-80 sm:h-80 md:w-96 md:h-96  sm:max-w-sm md:max-w-md mb-8">
+                <div
+                  key={index}
+                  className="flex-shrink-0 mr-4 last:mr-0  max-w-xs w-96 h-96 sm:w-80 sm:h-80 md:w-96 md:h-96  sm:max-w-sm md:max-w-md mb-8">
                   <img
                     src={imageUrl}
                     alt={`Event ${currentIndex + index}`}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'https://via.placeholder.com/400x600?text=Image+Not+Found';
+                      e.target.src =
+                        "https://via.placeholder.com/400x600?text=Image+Not+Found";
                     }}
                     className="w-full h-auto max-h-96 rounded-lg"
                   />
