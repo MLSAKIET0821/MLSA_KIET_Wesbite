@@ -3,7 +3,7 @@ import "./timeline.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import timelineElements from "./timelineElements";
-
+import { Motion } from "../framer-motion";
 AOS.init();
 
 function Line() {
@@ -71,9 +71,19 @@ function MobileViewTimeline() {
   return (
     <div className="bg-[#00070e] pb-4">
       <div className="text-center">
-        <h1 className="py-10 text-4xl md:text-6xl font-bold mb-9 pb-10 bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
+        <Motion.h1 
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          stiffness: 110,
+          delay: 0,
+        }}
+        className="py-10 text-4xl md:text-6xl font-bold mb-9 pb-10 bg-gradient-to-r from-sky-500 to-blue-400 bg-clip-text text-transparent">
           How to be an MLSA?
-        </h1>
+        </Motion.h1>
       </div>
       <div className="flex justify-center main-div mx-2">
         <div>
@@ -84,20 +94,38 @@ function MobileViewTimeline() {
                 className="flex justify-center main-div mt-10 mx-auto"
               >
                 <div className="max-w-full md:max-w-md">
-                  <div
+                  <Motion.div
+                   initial={{ opacity: 0, x: -50 }}
+                   whileInView={{ opacity: 1, x:0}}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: 0}}
                     key={element.id}
                     className="max-w-full border-2 border-[#7c7b7c] rounded-xl text-lg md:text-2xl bg-black text-white p-4"
                   >
-                    <h1
+                    <Motion.h1
+                    
+                    
                       key={element.id}
+                     
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, type: "spring", stiffness: 110, delay:0.3 }} 
+                    
                       className="p-3 md:p-6 text-xl md:text-4xl font-bold mb-3 md:mb-9 text-center bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent"
                     >
                       {element.title}
-                    </h1>
-                    <p key={element.id} className="px-3 md:px-6">
+                    </Motion.h1>
+                    <Motion.p 
+                   initial={{ opacity: 0, x: -50 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.3, type: "spring", stiffness: 110, delay:0.3 }}
+                  
+                    key={element.id} className="px-3 md:px-6">
                     {renderDescriptionWithLinks(element.description)}
-                    </p>
-                  </div>
+                    </Motion.p>
+                  </Motion.div>
                 </div>
               </div>
             );
