@@ -1,6 +1,36 @@
 import React from 'react';
 import { AiFillLinkedin } from 'react-icons/ai';
 
+
+
+import YashGoelImage from '../../assets/Team-Image/yashgoel.jpeg';
+import AnanyaImage from '../../assets/Team-Image/ananyamam.jpg';
+import KanishkImage from '../../assets/Team-Image/Kanisk-Jaiwal.jpg';
+import KashishImage from '../../assets/Team-Image/Kashish-Tyagi.jpg';
+import TanyaImage from '../../assets/Team-Image/Tanya.jpg';
+import PiyushImage from '../../assets/Team-Image/piyush.png';
+import SrishtiImage from '../../assets/Team-Image/Srishti.jpg';
+import AnshikaJainImage from '../../assets/Team-Image/Anshika-Jain.jpg';
+import ChandramouliImage from '../../assets/Team-Image/Chandramouli.jpg';
+import AbhishekImage from '../../assets/Team-Image/Abhishek-Singh.jpg';
+import SakshamImage from '../../assets/Team-Image/SAKSHAM.jpg';
+
+import PraveerImage from '../../assets/Team-Image/Praveer.jpg';
+import YashYadavImage from '../../assets/Team-Image/yash-yadav.jpg';
+
+
+import KanishkaSharmaImage from '../../assets/Team-Image/Kanishka.jpg';
+import UtkarshImage from '../../assets/Team-Image/Utkarsh.jpg';
+import AnugyaImage from '../../assets/Team-Image/Anugya.jpg';
+
+// import HarshImage from '../../assets/Team-Image/Harsh-Prajapati.jpg';
+import SahilImage from '../../assets/Team-Image/Sahil_Panwar.jpg';
+
+
+
+
+
+
 import Sidebar from '../sidenav/sidebar';
 import Footer from '../footer/footer.jsx';
 import { AiOutlineUser } from 'react-icons/ai';
@@ -19,7 +49,7 @@ const MemberCard = ({ member }) => {
         <h2 className="text-xl text-white font-bold hover:underline mb-3 ">
           {member.name}
         </h2>
-        <p className="text-gray-500">{member.role}</p>
+        <p className="text-gray-400 font-bold ">{member.role}</p>
         <div className="flex flex-row justify-center mt-2">
           <div className="m-2">
             <a href={member.gitlink} target="_blank">
@@ -60,121 +90,106 @@ const TeamPage = () => {
     {
       name: 'Yash Kumar Goel',
       role: 'Chapter Lead',
-      image: 'https://media.licdn.com/dms/image/D5603AQGGx4G7wLYbKw/profile-displayphoto-shrink_800_800/0/1706817033398?e=1718841600&v=beta&t=uTXBkwWug2eMqFNiqMfLfoNnbt0aUt5z9hqO-io3bjM',
+      image: YashGoelImage,
       gitlink: 'https://www.linkedin.com/in/yash-kumar-goel/',
     },
     {
       name: 'Ananya Shrivastava',
       role: 'Chapter Administrator',
-      image: 'https://media.licdn.com/dms/image/D5603AQGbT9DOWffbOA/profile-displayphoto-shrink_200_200/0/1708249084004?e=1718841600&v=beta&t=My6TaRGS952ZqL4kUZP6MaX98iXTh9bv74_80FZ-K7Y',
+      image: AnanyaImage,
       gitlink: 'https://www.linkedin.com/in/ananyasri14/',
     },
     {
       name: 'Kanishk Jaiswal',
       role: 'Sponsor manager',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: KanishkImage,
       gitlink: 'https://www.linkedin.com/in/kaniskjai',
     },
     {
       name: 'Kashish Tyagi',
       role: 'PR Lead',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: KashishImage,
       gitlink: 'https://www.linkedin.com/in/kashish-tyagi-70838a22a',
     },
     {
       name: 'Tanya Sharma',
       role: 'Technical Web Lead',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: TanyaImage,
       gitlink: 'https://www.linkedin.com/in/tanya-sharma05',
     },
     {
       name: 'Shrishti Upadhyay',
       role: 'Technical Android Lead',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: SrishtiImage,
       gitlink: 'https://www.linkedin.com/in/shrishti-upadhyay-055a01195',
     },
     {
       name: 'Anshika Jain',
       role: 'Event Manager',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: AnshikaJainImage,
       gitlink: 'https://www.linkedin.com/in/anshikaj2701',
     },
     {
       name: 'Piyush Sharma',
       role: 'Graphics Head',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image:  PiyushImage,
       gitlink: 'https://www.linkedin.com/in/piyush-sharma-23ps',
     },
-    {
-      name: 'Aarohi Saxena',
-      role: 'Sponsor Engage Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
-      gitlink: 'https://www.linkedin.com/in/kanishka-sharma-239235205',
-    },
+  
     {
       name: 'Anugya Gupta',
       role: 'Sponsor Engage Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: AnugyaImage,
       gitlink: 'https://www.linkedin.com/in/anugya-gupta-a448b824b',
     },
     {
       name: 'Kanishka Sharma',
       role: 'Web Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: KanishkaSharmaImage,
       gitlink: 'https://www.linkedin.com/in/kanishka-sharma-239235205/',
     },
     {
       name: 'Utkarsh Goyal',
       role: 'Web Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: UtkarshImage,
       gitlink: 'https://www.linkedin.com/in/utkarsh-goyal-74a81524b/',
     },
-    {
-      name: 'Divyansh Srivastav',
-      role: 'Web Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
-      gitlink: 'https://www.linkedin.com/in/divyansh-srivastav-680316289',
-    },
+    
     {
       name: 'Yash Yadav',
       role: 'Web Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: YashYadavImage,
       gitlink: 'https://www.linkedin.com/in/yash-yadav23',
     },
     {
       name: 'Chandramouli Dubey',
       role: 'Event Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: ChandramouliImage,
       gitlink: 'https://www.linkedin.com/in/chandramouli-dhar-dubey',
     },
     {
       name: 'Abhishek Singh',
       role: 'Event Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: AbhishekImage,
       gitlink: 'https://www.linkedin.com/in/abhisheksingh2004',
     },
     {
       name: 'Sahil Panwar',
       role: 'Event Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: SahilImage,
       gitlink: 'https://www.linkedin.com/in/kanishka-sharma-239235205',
     },
     {
       name: 'Saksham Jain',
       role: 'Event Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: SakshamImage,
       gitlink: 'https://www.linkedin.com/in/sakshamjain007',
     },
-    {
-      name: 'Yash Bhardwaj',
-      role: 'Event Coordinators',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
-      gitlink: 'https://www.linkedin.com/in/yash-bhardwaj-15233a253',
-    },
+    
     {
       name: 'Praveer Nandan',
       role: 'Video Editor & Social Media Team',
-      image: 'https://th.bing.com/th/id/OIP.LG6UqvINZmEBMrUzrhADJAHaHa?rs=1&pid=ImgDetMain',
+      image: PraveerImage,
       gitlink: 'https://www.linkedin.com/in/praveer-nandan-27537b204',
     },
   ];
