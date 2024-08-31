@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalendar,
   faPeopleGroup,
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-// import ReactHtmlParser from "react-html-parser";
-// import ReactHtml from 'html-react-parser';
 import parse from "html-react-parser";
 import Main_sidebar from "../sidenav/main_sidebar";
 import { useParams } from "react-router-dom";
@@ -107,35 +104,41 @@ const EventPastPage = () => {
           <div className="flex items-center justify-center mb-4">
             <button
               className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
-              onClick={handlePrevClick}>
+              onClick={handlePrevClick}
+            >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-              onClick={handleNextClick}>
+              onClick={handleNextClick}
+            >
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </div>
           <div className="overflow-hidden lg:ml-32 lg:mr-10 flex justify-center mb-16">
-            <div ref={sliderRef} className="flex flex-no-wrap w-full">
-              {getVisibleImages().map((imageUrl, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 mr-4 last:mr-0  max-w-xs w-96 h-96 sm:w-80 sm:h-80 md:w-96 md:h-96  sm:max-w-sm md:max-w-md mb-8">
-                  <img
-                    src={imageUrl}
-                    alt={`Event ${currentIndex + index}`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src =
-                        "https://via.placeholder.com/400x600?text=Image+Not+Found";
-                    }}
-                    className="w-full h-auto max-h-96 rounded-lg"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+  <div ref={sliderRef} className="flex flex-no-wrap w-full">
+    {getVisibleImages().map((imageUrl, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 mr-4 last:mr-0 w-full max-w-sm md:max-w-md mb-8"
+      >
+        <div className="relative w-full h-80 sm:h-80 md:h-96">
+          <img
+            src={imageUrl}
+            alt={`Event ${currentIndex + index}`}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src =
+                "https://via.placeholder.com/400x600?text=Image+Not+Found";
+            }}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </div>
     </div>
