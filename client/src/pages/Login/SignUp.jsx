@@ -127,7 +127,7 @@ const SignUp = () => {
     try {
       const response = await axios.post('https://mlsa-backend-4w03.onrender.com/api/user/register', data);
       console.log('User created:', response.data);
-      if (response.data.success) {
+      if (response.status==200) {
         showSuccessAlert('User created successfully! Please log in with your credentials.'); // Pass the desired message
       } else {
         console.error('Signup failed:', response.data.message);
@@ -146,7 +146,7 @@ const SignUp = () => {
       const response = await axios.post('https://mlsa-backend-4w03.onrender.com/api/user/login', { email, password });
       console.log('User logged in:', response.data);
       login(response.data);
-      if (response.data.success) {
+      if (response.status==200) {
         localStorage.setItem('token', response.data.data.accessToken);
         showSuccessAlert('Login successful!');
         navigate('/events'); // Navigate to events page after successful login
