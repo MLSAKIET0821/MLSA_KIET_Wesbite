@@ -36,7 +36,7 @@ const Footer2 = () => {
             <img
               src="./L1.jpg"
               alt="thejas"
-              className="max-w-full h-auto w-41 mx-auto mb-2"
+              className="max-w-full h-15 rounded lg:h-34 w-41 mx-auto mb-2"
             />
             <p className="text-2xl font-semibold">
               KIET Group of Institutions

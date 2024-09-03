@@ -115,7 +115,7 @@ transition :var(--time);
     margin: 0 0.5rem; /* Add margin to avoid content touching edges */
   }
   .text-lg {
-    font-size: 1.25rem; /* Adjust text size for better readability */
+    font-size: 1.rem; /* Adjust text size for better readability */
   }
   .text-4xl {
     font-size: 2rem; /* Adjust heading size */

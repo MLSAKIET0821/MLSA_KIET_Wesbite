@@ -16,7 +16,7 @@ const MemberCard = ({ member }) => {
         <h2 className="text-xl text-white font-bold hover:underline mb-3 ">
           {member.name}
         </h2>
-        <p className="text-gray-400 font-bold ">{member.domain}</p>
+        <p className="text-gray-400 font-bold text-center  ">{member.domain}</p>
         <div className="flex flex-row justify-center mt-2">
           <div className="m-2">
             <a href={member.linkedlnIdId} target="_blank">

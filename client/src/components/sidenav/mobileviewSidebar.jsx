@@ -37,7 +37,7 @@ function MobileviewSidebar() {
         className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 "
       >
         <div className="grid h-full max-w-lg grid-cols-4 mx-auto ">
-          <button
+          {/* <button
             onClick={HandleClick}
             type="button"
             className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
@@ -96,7 +96,25 @@ function MobileviewSidebar() {
             <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">
               Home
             </span>
-          </button>
+          </button> */}
+                    <Link to="/" onClick={HandleClick} className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+    <AiOutlineHome size={23} className="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" />
+    <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">
+        Home
+    </span>
+</Link>
+<Link to="/events" onClick={HandleClick} className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+    <SlCalender size={23} className="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" />
+    <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">
+        Events
+    </span>
+</Link>
+          <Link to="/members" onClick={HandleClick} className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+    <RiTeamLine size={23} className="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" />
+    <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">
+        Members
+    </span>
+</Link>
           {isLoggedIn ? (
             <button
               onClick={handleLogout}

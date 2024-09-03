@@ -77,7 +77,7 @@ const EventPastPage = () => {
     </h1>
     <div className="flex flex-col lg:flex-col items-center justify-center w-full">
     <div
-  className="w-full mb-12 ml-52 sm:h-[30vh] lg:h-[70vh]"
+  className="w-[80%] mb-12 ml-52 lg:ml-60 sm:h-[30vh] lg:h-auto"
   style={{ maxWidth: "100%", margin: "0 auto" }}
 >
 

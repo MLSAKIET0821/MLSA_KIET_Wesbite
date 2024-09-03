@@ -16,6 +16,8 @@ const EventInfoPage = lazy(() => import("./components/Events/EventInfoPage.jsx")
 const EventPastPage = lazy(() => import("./components/Events/EventPastPage.jsx"));
 const SignUp = lazy(() => import('./pages/Login/SignUp.jsx'));
 const PageNotFound = lazy(() => import('./pages/PageNotFound/PageNotFound.jsx'));
+//import Mainfooter from "components/footer/mainfooter.jsx"
+import Mainfooter from './components/footer/mainfooter.jsx';
 // const Main_timeline = lazy(() => import("./components/timeline/main_timeline"));
 
 function App() {
@@ -37,8 +39,8 @@ function App() {
                 {/* <Route path="/home" element={<AboutUs/>}/> */}
                 <Route path="/members" element={<TeamPage />} />
                 <Route path='/events' element={<EventPage />} /> 
-                <Route path="/event-info/:eventId" element={<EventPastPage />} />
-                <Route path="/upcoming-event-info/:eventId" element={<EventInfoPage isUpcoming={true} />} />
+                <Route path="/event-info/:eventId" element={<><EventPastPage /><Mainfooter/></>} />
+                <Route path="/upcoming-event-info/:eventId" element={<><EventInfoPage isUpcoming={true} /><Mainfooter/></>} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/login' element={<SignUp />} />
                 <Route path='*' element={<PageNotFound />} />

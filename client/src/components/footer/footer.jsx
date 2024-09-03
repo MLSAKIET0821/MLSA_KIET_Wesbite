@@ -38,11 +38,14 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="flex flex-col sm:flex-row items-center sm:col-span-2 md:col-span-1 text-center sm:text-left">
-            <img
+           
+              <img
               src="./L1.jpg"
               alt="logo"
-              className="h-34 w-40 mx-auto sm:mx-0 mb-2 sm:mr-4"
+              className="h-15 lg:h-30 sm:h-20 w-32 sm:w-40 rounded mx-auto sm:mx-0 mb-2 sm:mr-4"
             />
+            
+            
             <div>
               <p className="text-2xl font-semibold">KIET Group of Institutions</p>
               <p className="text-base">
