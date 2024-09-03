@@ -3,7 +3,7 @@ let timelineElements = [
     id: 1,
     title: "1. Research the Program ",
     description:
-      "Before applying, understand what the MLSA program entails. Visit the official Microsoft Learn Student Ambassadors website to gather information about the program's benefits, responsibilities, and community activities. https://mvp.microsoft.com/studentambassadors",
+      "Before applying, understand what the MLSA program entails. Visit the official MLSA website to gather information about the program's benefits, responsibilities, and community activities.",
    
   },
   {

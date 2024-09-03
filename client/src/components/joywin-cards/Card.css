@@ -1,7 +1,7 @@
 .Card-content {
   position: relative;
   width: 100%;
-  background-color: rgb(210, 215, 241);
+  background-color: rgb(216, 184, 247);
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -9,13 +9,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px; /* Add a max-width for larger screens */
-  margin: 0 auto; /* Center the cards horizontally */
+  max-width: 500px; 
+  margin: 25px auto; 
 }
 
 .Card-title {
   width: 100%;
-  background-color: rgba(206, 201, 245, 0.8);
+  background-color: rgb(216, 184, 247);
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
@@ -30,7 +30,7 @@
 
 .Card-image img {
   width: 100%;
-  height: 200px; /* Set a constant height */
+  height: 200px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -41,7 +41,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: rgba(198, 192, 245, 0.8);
+  background-color: rgb(216, 184, 247);
   box-sizing: border-box;
 }
 
@@ -50,7 +50,7 @@
   font-weight: 900;
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between date and button */
+  gap: 10px; 
 }
 
 .Card-footer button {
@@ -97,7 +97,7 @@
 }
 
 .Card-info button {
-  background: linear-gradient(to right, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0.2));
+  background: linear-gradient(to right, rgba(8, 8, 8, 0.938), rgba(233, 128, 219, 0.2));
   color: white;
   padding: 10px 20px;
   border: none;

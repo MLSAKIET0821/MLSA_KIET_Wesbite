@@ -103,6 +103,7 @@ const EventsGrid = ({ events, isLoggedIn, navigate, zoomed, toggleZoom }) => (
           alt="No Events"
           onClick={toggleZoom}
           style={{ transform: zoomed ? 'scale(1.5)' : 'scale(1)' }}
+          className='lg:w-80'
         />
       </ImageContainer>
     )}

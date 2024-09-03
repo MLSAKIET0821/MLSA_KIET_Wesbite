@@ -27,7 +27,7 @@ const Landing = () => {
             className=" lg:w-auto justify-center items-center animate-pulse mix-blend-multiply transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 ..."
           />
           <div className="hidden lg:flex flex-col items-center justify-center">
-            <h1 className="lg:font-bold text-7xl my-6">
+            <h1 className="lg:font-bold text-7xl my-6 ">
               At{" "}
               <span className="lg:code bg-clip-text text-transparent bg-gradient-to-r from-[#2afadf] to-sky-600">
                 KIET
@@ -84,7 +84,7 @@ const Landing = () => {
           className="  w-auto justify-center items-center"
         />
         <div className="flex flex-col justify-center items-center ">
-          <h1 className=" font-bold text-7xl text-slate-50 my-6  lg:hidden ">
+          <h1 className=" font-bold text-4xl text-slate-50 my-6  lg:hidden ">
            AT{" "}
             <span className="code bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600 ">
             KIET

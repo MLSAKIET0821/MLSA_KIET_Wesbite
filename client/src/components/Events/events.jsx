@@ -9,6 +9,7 @@ import Eventnew from './Eventnew';
 
 const PlaceholderImage = styled.img`
   max-width: 100%;
+  max-height: 100%;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
@@ -23,6 +24,8 @@ const ImageContainer = styled.div`
   align-items: center;
   height: 100%; 
   width: 100%;
+  max-height: 500px;  /* You can adjust this as needed */
+  overflow: hidden;  /* This ensures that the image doesn't overflow the container */
 `;
 
 const Event = ({ isLoggedIn }) => {

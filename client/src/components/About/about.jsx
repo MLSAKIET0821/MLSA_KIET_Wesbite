@@ -14,11 +14,11 @@ import { Motion } from "../framer-motion";// For Motion in Text
 const AboutUs = () => {
   return (
     <>
-    <div className=" mx-auto overflow-hidden sm:pt-20 sm:mx-24 ">
+    <div className=" mx-auto overflow-hidden sm:pt-2 ml-6 lg:ml-20 mt-5  ">
       
       <div className="lg:flex">
         
-        <div className="p-8 sm:pl-16 pt-14 sm:pt-0">
+        <div className="p-8 sm:pl-16 pt-4 sm:pt-0">
 
           <Motion.div 
            initial={{ opacity: 0, x: -100 }}

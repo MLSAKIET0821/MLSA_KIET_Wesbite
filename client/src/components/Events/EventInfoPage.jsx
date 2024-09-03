@@ -20,13 +20,14 @@ const EventInfoPage = ({ isUpcoming }) => {
             },
           }
         );
+        console.log(response.data);
         const eventData = response.data.data[0];
         setEvent({
           name: eventData.eventName,
           image: eventData.image,
           link: eventData.registrationLink,
           description: eventData.eventInfo,
-          isRegistered: eventData.isRegistered,
+          isRegistered: eventData.isRegisteres,
         });
       } catch (error) {
         console.error('Error fetching event details:', error);
@@ -48,6 +49,7 @@ const EventInfoPage = ({ isUpcoming }) => {
           },
         }
       );
+      
       setEvent((prevEvent) => ({
         ...prevEvent,
         isRegistered,
@@ -58,53 +60,62 @@ const EventInfoPage = ({ isUpcoming }) => {
   };
 
   if (!event) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-cyan-100">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-black">
       <Main_sidebar className="lg:mr-8" />
       <div className="flex flex-1 flex-col justify-center items-center p-4 sm:p-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mt-6 font-bold text-sky-600 text-center mb-4 sm:mb-8">
           {event.name}
         </h1>
-        <div className="flex justify-center mb-4 sm:mb-8">
+        <div className="flex justify-center mb-4 sm:mb-8 w-full">
           <img
             src={event.image}
             alt={event.name}
-            className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-lg shadow-lg object-cover object-center"
+            className="w-full max-w-4xl h-3/2 rounded-lg shadow-lg object-cover object-center"
+            style={{ marginLeft: '45px', marginRight: '15px' }}
           />
         </div>
-        <p className="text-base sm:text-lg md:text-xl font-bold mb-4 sm:mb-8 text-center">
+        <p className="text-base sm:text-lg md:text-xl text-white font-bold mb-4 sm:mb-8 text-center max-w-4xl">
           {event.description}
         </p>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-4 sm:mb-8 text-center">
-          Registration Link:
-        </h2>
-        <a
-          href={event.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 font-bold underline mb-4 sm:mb-8 text-center break-words"
-        >
-          {event.link}
-        </a>
-        <div className="flex items-center mb-4 sm:mb-8">
-          <input
-            type="checkbox"
-            id="attend"
-            checked={event.isRegistered}
-            onChange={handleRegister}
-            className="mr-2"
-          />
-          <label htmlFor="attend" className="text-base sm:text-lg font-bold">
-            I want to attend this event
-          </label>
-        </div>
-        {event.isRegistered && (
-          <p className="text-green-500 mb-4 sm:mb-8 text-center font-bold">
-            You have registered successfully!
+
+        {event.isRegistered ? (
+          <p className="text-white mb-4 sm:mb-8 text-center font-bold">
+            Thank You! You have registered for the event.
           </p>
+        ) : (
+          <>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-cyan-400 mb-4 sm:mb-8 text-center">
+              You have to fill the form below to confirm your registration:
+            </h2>
+            <a
+              href={event.link.startsWith('http') ? event.link : `https://${event.link}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-300 font-bold underline mb-4 sm:mb-8 text-center break-words max-w-4xl"
+            >
+              {event.link}
+            </a>
+            <div className="flex items-center mb-4 sm:mb-8">
+              <input
+                type="checkbox"
+                id="attend"
+                checked={event.isRegistered}
+                onChange={handleRegister}
+                className="mr-2"
+              />
+              <label htmlFor="attend" className="text-base sm:text-lg font-bold text-white">
+                I want to attend this event
+              </label>
+            </div>
+          </>
         )}
       </div>
     </div>

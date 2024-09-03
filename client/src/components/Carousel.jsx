@@ -71,19 +71,19 @@ const data = [
   {
     name: 'Yash Kumar Goel',
     img: '/yashsir.JPG',
-    review: 'Being an MLSA is transformative. Access to Microsoft resources and a supportive community has greatly enhanced my technical and leadership skills. Highly recommended for passionate tech students.',
+    review: 'Being an MLSA is transformative. Access to Microsoft resources and a supportive community has greatly enhanced my technical and leadership skills.',
     linkedin: 'https://www.linkedin.com/in/yash-kumar-goel/'
   },
   {
     name: 'Ananya Srivastava',
     img: 'ananyamam.jpg',
-    review: 'The MLSA program offers unparalleled learning opportunities, hands-on workshops, and valuable networking. It’s been crucial for my professional growth and skill development.',
+    review: 'The MLSA program offers unparalleled learning opportunities, hands-on workshops, and valuable networking.',
     linkedin: 'https://www.linkedin.com/in/ananyasri14/'
   },
   {
     name: 'Praveer Nandan',
     img: 'praveer.jpg',
-    review: 'Joining MLSA was a game-changer. The mentorship, resources, and community have significantly boosted my academic and professional journey. Ideal for students eager to excel in technology.',
+    review: 'Joining MLSA was a game-changer. The mentorship, resources, and community have significantly boosted my academic and professional journey.',
     linkedin: 'https://www.linkedin.com/in/praveer-nandan-27537b204/'
   }
 ];
