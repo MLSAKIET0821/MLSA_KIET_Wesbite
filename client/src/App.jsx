@@ -10,7 +10,7 @@ const TeamPage = lazy(() => import("./components/team/team"));
 const Sidebar = lazy(() => import("./components/sidenav/sidebar.jsx"));
 const Main_sidebar = lazy(() => import("./components/sidenav/main_sidebar.jsx"));
 const AboutUs = lazy(() => import("./components/About/about.jsx"));
-const EventOrRegister = lazy(() => import("./Context/EventOrRegister"));
+
 const EventPage = lazy(() => import("./components/Events/EventPage.jsx")); 
 const EventInfoPage = lazy(() => import("./components/Events/EventInfoPage.jsx"));
 const EventPastPage = lazy(() => import("./components/Events/EventPastPage.jsx"));
@@ -33,7 +33,7 @@ function App() {
             }>
               <Main_sidebar />
               <Routes>
-                <Route path="/" element={<><Landing /> <AboutUs /></>} />
+                <Route path="/" element={<><Landing /><AboutUs /></>} />
                 {/* <Route path="/home" element={<AboutUs/>}/> */}
                 <Route path="/members" element={<TeamPage />} />
                 <Route path='/events' element={<EventPage />} /> 

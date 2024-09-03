@@ -76,10 +76,11 @@ const EventPastPage = () => {
       {event.name}
     </h1>
     <div className="flex flex-col lg:flex-col items-center justify-center w-full">
-      <div
-        className="w-full mb-12 ml-52"
-        style={{ maxWidth: "80%", height: "60vh", margin: "0 auto" }}
-      >
+    <div
+  className="w-full mb-12 ml-52 sm:h-[30vh] lg:h-[70vh]"
+  style={{ maxWidth: "100%", margin: "0 auto" }}
+>
+
         <img
           src={event.image}
           alt={event.name}
@@ -90,7 +91,7 @@ const EventPastPage = () => {
         <h2 className="text-3xl sm:text-3xl md:text-4xl text-center font-bold mb-4 text-sky-600 mt-8">
           Event Description
         </h2>
-        <div className="text-white text-lg sm:text-xl sm:ml-32 md:text-2xl mb-8 text-center lg:text-left">
+        <div className="text-white text-lg sm:text-xl sm:ml-2  lg:ml-32 md:text-2xl mb-8 text-center lg:text-left">
           {parse(event.description)}
         </div>
         <div className="flex items-center justify-center lg:justify-center">
@@ -107,45 +108,47 @@ const EventPastPage = () => {
     <h2 className="text-2xl sm:text-3xl md:text-4xl text-left font-bold mb-8 text-sky-600 mt-16 ml-4 md:ml-24">
       Event Images
     </h2>
-    <div className="relative w-full">
-      <div className="flex items-center justify-center mb-4">
-        <button
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
-          onClick={handlePrevClick}
+    <div className="relative w-full flex flex-col items-center">
+  <div className="flex items-center justify-center mb-4">
+    <button
+      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+      onClick={handlePrevClick}
+    >
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </button>
+    <button
+      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+      onClick={handleNextClick}
+    >
+      <FontAwesomeIcon icon={faChevronRight} />
+    </button>
+  </div>
+  <div className="overflow-hidden flex justify-center w-full lg:w-3/4">
+    <div ref={sliderRef} className="flex flex-no-wrap justify-center w-full">
+      {getVisibleImages().map((imageUrl, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 mx-4 w-full max-w-sm md:max-w-md mb-8"
         >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-        <button
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-          onClick={handleNextClick}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-      </div>
-      <div className="overflow-hidden lg:ml-32 lg:mr-10 flex justify-center mb-16">
-        <div ref={sliderRef} className="flex flex-no-wrap w-full">
-          {getVisibleImages().map((imageUrl, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 mr-4 last:mr-0 w-full max-w-sm md:max-w-md mb-8"
-            >
-              <div className="relative w-full h-80 sm:h-80 md:h-96">
-                <img
-                  src={imageUrl}
-                  alt={`Event ${currentIndex + index}`}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src =
-                      "https://via.placeholder.com/400x600?text=Image+Not+Found";
-                  }}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            </div>
-          ))}
+          <div className="relative w-full h-80 sm:h-80 md:h-96">
+            <img
+              src={imageUrl}
+              alt={`Event ${currentIndex + index}`}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://via.placeholder.com/400x600?text=Image+Not+Found";
+              }}
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
         </div>
-      </div>
+      ))}
     </div>
+  </div>
+</div>
+
+
   </div>
 </div>
 
