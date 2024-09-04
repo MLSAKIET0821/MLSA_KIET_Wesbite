@@ -84,7 +84,7 @@ const data = [
   {
     name: 'Utkarsh Goyal',
     img: '/Utkarsh.jpg',
-    review: '<b> Web Lead </b> responsible for creating and maintaining the club’s website. Utkarsh has enhanced accessibility and user experience through innovative web design and development, making information easily available to all members.',
+    review: '<b> Web Lead </b> responsible for creating and maintaining the club’s website. Utkarsh has enhanced accessibility and user experience through innovative web design and development.',
     linkedin: 'https://www.linkedin.com/in/utkarsh-goyal-74a81524b'
   },
   {
@@ -96,7 +96,7 @@ const data = [
   {
     name: 'Anugya Gupta',
     img: '/Anugya.jpg',
-    review: ' <b> Sponsor and Engagement  </b>, Community Manager. Anugya is instrumental in managing all events and ensuring smooth operations. Her dedication to fostering community engagement and sponsorships greatly contributes to our club’s success.',
+    review: ' <b> Sponsor and Engagement  </b>, Community Manager. Anugya is instrumental in managing all events. Her dedication to fostering community engagement  greatly contributes to our club’s success.',
     linkedin: 'https://www.linkedin.com/in/anugya-gupta-74a81524b'
   },
   {

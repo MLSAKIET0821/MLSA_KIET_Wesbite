@@ -149,8 +149,8 @@ const SignUp = () => {
       if (response.status==200) {
         localStorage.setItem('token', response.data.data.accessToken);
         showSuccessAlert('Login successful!');
-        window.location.reload();
         navigate('/events'); 
+        window.location.reload();
        
       } else {
         console.error('Login failed:', response.data.message);

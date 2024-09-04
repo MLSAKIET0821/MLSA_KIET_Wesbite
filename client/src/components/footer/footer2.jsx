@@ -6,6 +6,7 @@ import {
   AiFillMail,
 
 } from "react-icons/ai";
+import Image from "./L1.jpg";
 
 
 const Footer2 = () => {
@@ -34,7 +35,7 @@ const Footer2 = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex flex-col items-center">
             <img
-              src="./L1.jpg"
+              src={Image}
               alt="thejas"
               className="max-w-full h-15 rounded lg:h-34 w-41 mx-auto mb-2"
             />

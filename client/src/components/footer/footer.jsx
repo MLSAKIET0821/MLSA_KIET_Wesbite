@@ -5,6 +5,7 @@ import {
   AiFillInstagram,
   AiFillMail,
 } from "react-icons/ai";
+import Image from "./L1.jpg";
 
 const HandleClick = () => {
   window.scrollTo({
@@ -40,7 +41,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center sm:col-span-2 md:col-span-1 text-center sm:text-left">
            
               <img
-              src="./L1.jpg"
+              src={Image}
               alt="logo"
               className="h-15 lg:h-30 sm:h-20 w-32 sm:w-40 rounded mx-auto sm:mx-0 mb-2 sm:mr-4"
             />
