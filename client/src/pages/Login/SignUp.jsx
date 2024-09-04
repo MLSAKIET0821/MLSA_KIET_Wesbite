@@ -97,8 +97,8 @@ const SignUp = () => {
   };
 
   const showSuccessAlert = (message) => {
-    toast.success(message); // Show the message using toast
-    navigate('/login'); // Navigate to the login page after successful signup
+    toast.success(message); 
+    navigate('/login'); 
   };
 
   const showErrorAlert = (message) => {
