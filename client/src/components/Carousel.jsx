@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AiFillLinkedin } from "react-icons/ai";
 import './Carousel.css';
+import parse from "html-react-parser";
 import { Motion } from "./framer-motion";// For Motion in Text
 
 function Carousel() {
@@ -53,7 +54,7 @@ function Carousel() {
                 </div>
                 <div className="flex flex-col items-center justify-center gap-4 p-4">
                   <p className="text-xl font-semibold">{d.name}</p>
-                  <p className="text-center">{d.review}</p>
+                  <p className="text-center">{parse(d.review)}</p>
                   <a href={d.linkedin} target="_blank" rel="noopener noreferrer" className='connect-button bg-indigo-800 text-white text-lg px-6 py-1 rounded-xl flex items-center gap-2'>
                     <AiFillLinkedin /> Connect
                   </a>
@@ -71,43 +72,43 @@ const data = [
   {
     name: 'Yash Kumar Goel',
     img: '/yashsir.JPG',
-    review: 'Chapter Lead with a vision to connect like-minded individuals under one hub. Yash is dedicated to fostering collaboration and creating a strong community that thrives on mutual support and shared goals.',
+    review: '<b>Chapter Lead </b> with a vision to connect like-minded individuals under one hub. Yash is dedicated to fostering collaboration and creating a strong community that thrives on mutual support and shared goals.',
     linkedin: 'https://www.linkedin.com/in/yash-kumar-goel/'
   },
   {
     name: 'Ananya Srivastava',
     img: '/ananyamam.jpg',
-    review: 'As Chapter Administrator, Ananya ensures smooth coordination of all events and activities. Her exceptional organizational skills and attention to detail help maintain a seamless flow, making every event a success.',
+    review: 'As <b> Chapter Administrator </b>, Ananya ensures smooth coordination of all events and activities. Her exceptional organizational skills and attention to detail help maintain a seamless flow, making every event a success.',
     linkedin: 'https://www.linkedin.com/in/ananyasri14/'
   },
   {
     name: 'Utkarsh Goyal',
     img: '/Utkarsh.jpg',
-    review: 'Web Lead responsible for creating and maintaining the club’s website. Utkarsh has enhanced accessibility and user experience through innovative web design and development, making information easily available to all members.',
+    review: '<b> Web Lead </b> responsible for creating and maintaining the club’s website. Utkarsh has enhanced accessibility and user experience through innovative web design and development, making information easily available to all members.',
     linkedin: 'https://www.linkedin.com/in/utkarsh-goyal-74a81524b'
   },
   {
     name: 'Praveer Nandan',
     img: '/praveer.jpg',
-    review: 'Graphics Head who manages the graphics team and oversees digital marketing strategies. Praveer’s creative vision and leadership ensure that our visual content is engaging, effective, and consistently high-quality.',
+    review: ' <b> Graphics </b> Head who manages the graphics team and oversees digital marketing strategies. Praveer’s creative vision and leadership ensure that our visual content is engaging, effective, and consistently high-quality.',
     linkedin: 'https://www.linkedin.com/in/praveer-nandan-27537b204'
   },
   {
     name: 'Anugya Gupta',
     img: '/Anugya.jpg',
-    review: 'Sponsor and Engagement, Community Manager. Anugya is instrumental in managing all events and ensuring smooth operations. Her dedication to fostering community engagement and sponsorships greatly contributes to our club’s success.',
+    review: ' <b> Sponsor and Engagement  </b>, Community Manager. Anugya is instrumental in managing all events and ensuring smooth operations. Her dedication to fostering community engagement and sponsorships greatly contributes to our club’s success.',
     linkedin: 'https://www.linkedin.com/in/anugya-gupta-74a81524b'
   },
   {
     name: 'Kanishka Sharma',
     img: '/Kanishka.jpg',
-    review: 'Web Co-Lead who played a pivotal role in the creation and development of our website. Kanishka’s contributions have been crucial in building a functional and user-friendly platform for our community.',
+    review: ' <b> Web Co-Lead  </b> who played a pivotal role in the creation and development of our website. Kanishka’s contributions have been crucial in building a functional and user-friendly platform for our community.',
     linkedin: 'https://www.linkedin.com/in/kanishka-sharma-239235205'
   },
   {
     name: 'Saksham Jain',
     img: '/SAKSHAM.jpg',
-    review: 'Overall Coordinator who plays a key role in ensuring the smooth operation of the club and all its domains. Saksham’s ability to coordinate and assist across various functions makes him an invaluable asset.',
+    review: ' <b> Overall Coordinator  </b> who plays a key role in ensuring the smooth operation of the club and all its domains. Saksham’s ability to coordinate and assist across various functions makes him an invaluable asset.',
     linkedin: 'https://www.linkedin.com/in/sakshamjain007'
   }
 ];

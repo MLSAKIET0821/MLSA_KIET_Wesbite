@@ -13,7 +13,7 @@ const MemberCard = ({ member }) => {
           alt={member.name}
           className="img w-48 h-48 mb-4 rounded-full mt-4"
         />
-        <h2 className="text-xl text-white font-bold hover:underline mb-3 ">
+        <h2 className="text-xl text-white font-bold text-center hover:underline mb-3 ">
           {member.name}
         </h2>
         <p className="text-gray-400 font-bold text-center  ">{member.domain}</p>

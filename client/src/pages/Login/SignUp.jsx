@@ -149,7 +149,9 @@ const SignUp = () => {
       if (response.status==200) {
         localStorage.setItem('token', response.data.data.accessToken);
         showSuccessAlert('Login successful!');
-        navigate('/events'); // Navigate to events page after successful login
+        window.location.reload();
+        navigate('/events'); 
+       
       } else {
         console.error('Login failed:', response.data.message);
         showErrorAlert(`Login failed: ${response.data.message}`);
