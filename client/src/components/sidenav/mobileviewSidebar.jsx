@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { SlCalender } from "react-icons/sl";
 import { RiTeamLine } from "react-icons/ri";
 import { AiOutlineHome } from "react-icons/ai";
-import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { IoLogIn } from "react-icons/io5";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 function MobileviewSidebar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -89,7 +90,7 @@ function MobileviewSidebar() {
                 fill="currentColor"
                 viewBox="0 0 20 19"
               >
-                <IoLogOut size={23} />
+                <RiLogoutBoxLine size={23} />
               </svg>
               <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">
                 Log Out
