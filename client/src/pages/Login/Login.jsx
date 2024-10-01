@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useAuth } from '../../auth.jsx';
 import axios from 'axios';
-import * as Components from './Component.js';
 import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const { login } = useAuth();
-  const [signIn, toggle] = React.useState(true);
+  const [signIn, toggle] = useState(true);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -21,18 +20,18 @@ const SignUp = () => {
 
   const [message, setMessage] = useState({ text: '', type: '' });
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value
-    });
-  };
+    }));
+  }, []);
 
-  const handleImageChange = (e) => {
+  const handleImageChange = useCallback((e) => {
     const { name, files } = e.target;
-    setFormData({ ...formData, [name]: files[0] });
-  };
+    setFormData((prevData) => ({ ...prevData, [name]: files[0] }));
+  }, []);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -75,60 +74,55 @@ const SignUp = () => {
   };
 
   return (
-    <Components.Container>
-      {message.text && (
-        <div style={{ color: message.type === 'error' ? 'red' : 'green' }}>
-          {message.text}
+    <div className="flex h-screen items-center justify-center bg-gray-200">
+      <div className={`relative w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 ${signIn ? 'translate-x-0' : 'translate-x-full'}`}>
+        {message.text && (
+          <div className={`p-4 text-white ${message.type === 'error' ? 'bg-red-500' : 'bg-green-500'}`}>
+            {message.text}
+          </div>
+        )}
+
+        <div className={`absolute inset-0 flex transition-opacity duration-500 ${signIn ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="w-1/2 bg-blue-500 flex items-center justify-center text-white">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-4">Welcome Back!</h2>
+              <p className="mb-4">To keep connected with us please login with your personal info</p>
+              <button onClick={() => toggle(true)} className="bg-transparent border-2 border-white text-white py-2 px-4 rounded">Sign In</button>
+            </div>
+          </div>
+
+          <div className="w-1/2 bg-green-500 flex items-center justify-center text-white">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-4">Hello, Friend!</h2>
+              <p className="mb-4">Enter your personal details and start your journey with us</p>
+              <button onClick={() => toggle(false)} className="bg-transparent border-2 border-white text-white py-2 px-4 rounded">Sign Up</button>
+            </div>
+          </div>
         </div>
-      )}
-      <Components.SignUpContainer signinIn={signIn}>
-        <Components.Form onSubmit={handleSignUp}>
-          <Components.Title>Create Account</Components.Title>
-          <Components.Input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
-          <Components.Input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} required />
-          <Components.Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-          <Components.Input type="text" name="branch" placeholder="Branch" value={formData.branch} onChange={handleChange} required />
-          <Components.Input type="text" name="year" placeholder="Year" value={formData.year} onChange={handleChange} required />
-          <Components.Input type="file" name="profileImage" onChange={handleImageChange} required />
-          <Components.Input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-          <Components.Button type="submit">Sign Up</Components.Button>
-        </Components.Form>
-      </Components.SignUpContainer>
 
-      <Components.SignInContainer signinIn={signIn}>
-        <Components.Form onSubmit={handleSignIn}>
-          <Components.Title>Sign in</Components.Title>
-          <Components.Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-          <Components.Input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-          <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Components.Button type="submit">Sign In</Components.Button>
-        </Components.Form>
-      </Components.SignInContainer>
+        <div className={`transition-transform duration-500 ${signIn ? 'translate-x-0' : 'translate-x-full'}`}>
+          <form onSubmit={handleSignUp} className="p-8">
+            <h2 className="text-2xl font-bold mb-6">Create Account</h2>
+            <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="text" name="branch" placeholder="Branch" value={formData.branch} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="text" name="year" placeholder="Year" value={formData.year} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="file" name="profileImage" onChange={handleImageChange} className="w-full mb-4" required />
+            <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Sign Up</button>
+          </form>
 
-      <Components.OverlayContainer signinIn={signIn}>
-        <Components.Overlay signinIn={signIn}>
-          <Components.LeftOverlayPanel signinIn={signIn}>
-            <Components.Title>Welcome Back!</Components.Title>
-            <Components.Paragraph>
-              To keep connected with us please login with your personal info
-            </Components.Paragraph>
-            <Components.GhostButton onClick={() => toggle(true)}>
-              Sign In
-            </Components.GhostButton>
-          </Components.LeftOverlayPanel>
-
-          <Components.RightOverlayPanel signinIn={signIn}>
-            <Components.Title>Hello, Friend!</Components.Title>
-            <Components.Paragraph>
-              Enter your personal details and start your journey with us
-            </Components.Paragraph>
-            <Components.GhostButton onClick={() => toggle(false)}>
-              Sign Up
-            </Components.GhostButton>
-          </Components.RightOverlayPanel>
-        </Components.Overlay>
-      </Components.OverlayContainer>
-    </Components.Container>
+          <form onSubmit={handleSignIn} className="p-8">
+            <h2 className="text-2xl font-bold mb-6">Sign In</h2>
+            <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded" required />
+            <a href="#" className="text-blue-500 mb-4 inline-block">Forgot your password?</a>
+            <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
