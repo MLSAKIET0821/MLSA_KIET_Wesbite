@@ -77,7 +77,7 @@ const UpComingEventCards = (props) => {
   const handleRegister = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      if (props.isRegistered) {  // Checking if the user is already registered
+      if (props.isRegistered) {  
         const path = `/upcoming-event-info/${props._id}`;
         navigate(path);
       } else {

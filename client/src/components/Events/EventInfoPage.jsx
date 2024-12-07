@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../auth.jsx';
 import Main_sidebar from '../sidenav/main_sidebar';
+import parse from "html-react-parser";
 
 const EventInfoPage = ({ isUpcoming }) => {
   const { eventId } = useParams();
@@ -83,7 +84,7 @@ const EventInfoPage = ({ isUpcoming }) => {
           />
         </div>
         <p className="text-base sm:text-lg md:text-xl text-white font-bold mb-4 sm:mb-8 text-center max-w-4xl">
-          {event.description}
+        {parse(event.description)}
         </p>
 
         {event.isRegistered ? (
