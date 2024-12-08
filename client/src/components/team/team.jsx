@@ -156,13 +156,13 @@ const TeamPage = () => {
 
           return (
             <div key={group} className="mb-16">
-             <h2 className="text-7xl font-semibold mb-8 text-center text-orange-50" style={{ textShadow: '2px 2px 4px rgb(190 242 100)' }}>
+             <h2 className="text-7xl font-semibold mb-2 text-center text-orange-50 " style={{ textShadow: '2px 2px 4px rgb(190 242 100)' }}>
   {group}
 </h2>
 
-              <div className="grid place-items-center grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="grid place-items-center grid-cols-1  mt-20 md:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:grid-cols-3">
                 {members.map((member, index) => (
-                  <MemberCard key={index} member={member} className="mb-8" />
+                  <MemberCard key={index} member={member} className="mt-10" />
                 ))}
               </div>
             </div>
