@@ -15,15 +15,15 @@ function Carousel() {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1024, // Tablet breakpoint
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 2, // Show 2 slides on tablets
+          slidesToShow: 2, 
         }
       },
       {
-        breakpoint: 768, // Mobile breakpoint
+        breakpoint: 768, 
         settings: {
-          slidesToShow: 1, // Show 1 slide on mobile
+          slidesToShow: 1,
         }
       }
     ]
@@ -88,28 +88,10 @@ const data = [
     linkedin: 'https://www.linkedin.com/in/utkarsh-goyal-74a81524b'
   },
   {
-    name: 'Praveer Nandan',
-    img: '/praveer.jpg',
-    review: ' <b> Graphics </b> Head who manages the graphics team and oversees digital marketing strategies. Praveer’s creative vision and leadership ensure that our visual content is engaging, effective, and consistently high-quality.',
-    linkedin: 'https://www.linkedin.com/in/praveer-nandan-27537b204'
-  },
-  {
-    name: 'Anugya Gupta',
-    img: '/Anugya.jpg',
-    review: ' <b> Sponsor and Engagement  </b>, Community Manager. Anugya is instrumental in managing all events. Her dedication to fostering community engagement  greatly contributes to our club’s success.',
-    linkedin: 'https://www.linkedin.com/in/anugya-gupta-74a81524b'
-  },
-  {
     name: 'Kanishka Sharma',
     img: '/Kanishka.jpg',
     review: ' <b> Web Co-Lead  </b> who played a pivotal role in the creation and development of our website. Kanishka’s contributions have been crucial in building a functional and user-friendly platform for our community.',
     linkedin: 'https://www.linkedin.com/in/kanishka-sharma-239235205'
-  },
-  {
-    name: 'Saksham Jain',
-    img: '/SAKSHAM.jpg',
-    review: ' <b> Overall Coordinator  </b> who plays a key role in ensuring the smooth operation of the club and all its domains. Saksham’s ability to coordinate and assist across various functions makes him an invaluable asset.',
-    linkedin: 'https://www.linkedin.com/in/sakshamjain007'
   }
 ];
 
