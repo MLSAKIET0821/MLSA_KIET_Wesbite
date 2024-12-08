@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiFillLinkedin } from 'react-icons/ai';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiFillLinkedin, AiOutlineUser } from 'react-icons/ai';
 import './team.css';
 import Mainfooter from '../footer/mainfooter';
 
@@ -19,7 +18,7 @@ const MemberCard = ({ member }) => {
         <p className="text-gray-400 font-bold text-center  ">{member.domain}</p>
         <div className="flex flex-row justify-center mt-2">
           <div className="m-2">
-            <a href={member.linkedlnIdId} target="_blank">
+            <a href={member.linkedlnIdId} target="_blank" rel="noopener noreferrer">
               <AiFillLinkedin color="white" size={30} />
             </a>
           </div>
@@ -77,6 +76,60 @@ const TeamPage = () => {
     },
   ];
 
+  // Group members by keywords
+  const groupMembersByKeyword = (members) => {
+    const groups = {
+      'Chapter': [],
+      'Web': [],
+      'Android': [],
+      'Event': [],
+      'Sponsor': [],
+      'Graphic': [],
+      'Other': []
+    };
+
+    members.forEach(member => {
+      const domain = member.domain.toLowerCase();
+      if (domain.includes('chapter')) {
+        groups['Chapter'].push(member);
+      } else if (domain.includes('web')) {
+        groups['Web'].push(member);
+      } else if (domain.includes('android')) {
+        groups['Android'].push(member);
+      } else if (domain.includes('event')) {
+        groups['Event'].push(member);
+      } else if (domain.includes('sponsor')) {
+        groups['Sponsor'].push(member);
+      } else if (domain.includes('graphic')) {
+        groups['Graphic'].push(member);
+      } else {
+        groups['Other'].push(member);
+      }
+    });
+
+    return groups;
+  };
+
+  // Sort members within each group by priority
+  const sortMembersByPriority = (members) => {
+    const priorityOrder = ['lead', 'colead', 'manager', 'coordinator', ''];
+    
+    return members.sort((a, b) => {
+      const domainA = a.domain.toLowerCase();
+      const domainB = b.domain.toLowerCase();
+      
+      const priorityA = priorityOrder.findIndex(p => domainA.includes(p));
+      const priorityB = priorityOrder.findIndex(p => domainB.includes(p));
+      
+      return priorityA - priorityB;
+    });
+  };
+
+  const groupedAndSortedMembers = groupMembersByKeyword(teamMembers);
+  Object.keys(groupedAndSortedMembers).forEach(key => {
+    groupedAndSortedMembers[key] = sortMembersByPriority(groupedAndSortedMembers[key]);
+  });
+
   return (
     <div>
       <div className="container mx-auto mb-10 pl-4">
@@ -98,11 +151,20 @@ const TeamPage = () => {
           </h1>
         </div>
 
-        <div className="grid place-items-center grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-2  xl:grid-cols-3 ">
-          {teamMembers.map((member, index) => (
-            <MemberCard key={index} member={member} className="mb-8" />
-          ))}
-        </div>
+        {Object.entries(groupedAndSortedMembers).map(([group, members]) => {
+          if (members.length === 0) return null;
+
+          return (
+            <div key={group} className="mb-16">
+              <h2 className="text-3xl font-semibold mb-8 text-gray-800">{group}</h2>
+              <div className="grid place-items-center grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:grid-cols-3">
+                {members.map((member, index) => (
+                  <MemberCard key={index} member={member} className="mb-8" />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
       <Mainfooter className="mt-5" />
     </div>
@@ -110,3 +172,4 @@ const TeamPage = () => {
 };
 
 export default TeamPage;
+
